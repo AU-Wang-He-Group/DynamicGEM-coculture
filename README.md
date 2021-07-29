@@ -28,10 +28,31 @@ What you need to have/do in order to run the codes:
 `https://github.com/AU-Wang-He-Group/Semi-structured-KineticModel.git`;
    
    2) __DynamicGEMsecondMicrobeMicrobe__ - this script will gather model projections 
-   from DynamicGEMfirst (from step 1) including: dataforGEM 1 & 2, calculate the constraints for the coculture GEM model and predict the total growth rate and metabolic interactions.
+   from DynamicGEMfirst (from step 1) including: dataforGEM 1 & 2, calculate/define the constraints for the coculture GEM model and predict the total growth rate and metabolic interactions.
    
    # Runing the model step by step:
-- The full description for running the first script (DynamicGEMfirst=kinetic model) is avalaible at `https://github.com/AU-Wang-He-Group/Semi-structured-KineticModel.git`. The only difference is "Dynamic GEM preparation" section in the code, that user needs to enter the desired 'time points' for the GEM modeling.
+- __1-__ The full description for running the first script (DynamicGEMfirst=kinetic model) is avalaible at `https://github.com/AU-Wang-He-Group/Semi-structured-KineticModel.git`. The only difference is "Dynamic GEM preparation" section in the code, that user needs to enter the desired 'time points' for the GEM modeling.
 
 ![info-icon](https://img.icons8.com/flat_round/48/000000/info.png)
 __NOTE__: There is a default time points in the code and a plot will be generated to show you dynamic of the system at the time points. If you wish to change or use different time points, simply change __'timeGEM'__ parameter.
+
+- As it mentioned, DynamicGEMfirst, generates two Matlab Data files that will be used for second script.
+- __2-__ DynamicGEMsecondMirobeMicrobe uses the data files and calculates the required constraints for the GEM model which are at different unit (mmol/gDCW/hr).
+- Then the code loads GEM reconstruction models (methanotroph and photoautotroph), polishes them and generates a join/coculture model with community compartment.
+
+![info-icon](https://img.icons8.com/flat_round/48/000000/info.png)
+__NOTE__: You need to provide GEM reconstructions for each species and polish them in "prepare the models" section in the code, if you wanted to use the dynamic GEM for different organisms/system.
+- Next section is "Computation of pairwise interactions", Which a 'for' loop (for each time points). It first defines corresponding constraints for the coculture system at a specific time; two main constraints in M-P coculture is methane uptake by methanotroph and carbon dioxide uptake by photoautotroph. And some extra constraints if you would like to block/change metabolic interactions.
+- finally, the model simulates the coculture system, solves the equaitons and predicts interactions. The final resutls of all time points as a represenative of dynamic GEM model will be saved in __"VisioInput"__ for further analysis. 
+- Other information such as predicted coculture growth rates, biomass ratio and etc will be saved in __"Growth"__ cell. 
+
+# 3. Contacts
+
+If you need assistance using these analysis scripts or to adjust them to your specific aims, 
+do contact us at:
+
+_Kiumars Badr_: kzb0054 [at] auburn.edu
+
+_Jin Wang_: wang [at] auburn.edu
+
+_Wang group Aug 2021_
