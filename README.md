@@ -14,7 +14,7 @@ What you need to have/do in order to run the codes:
 # 1. Folder structure:
 - __Codes:__ Including Matlab cods named as dynamicGEM __first__ and __second__ which are identification for two scripts
 - __Model:__ Including curated/modified reconstruction for photoautotroph (_A. platensis_) and methanotroph (_M. buryatense_)
-- __Data:__ Including Matlab data (Microsoft Access Table Shortcut) from first script as a prerequisite for running the second script
+- __Data:__ Including Matlab data (Microsoft Access Table Shortcut) from first script as a prerequisite for running the second script. And some output data tables from dynamic GEM model for different conditions.
 
 # 2. Workflow
 
